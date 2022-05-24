@@ -1,0 +1,11 @@
+project: pyspellchecker
+target: pyspellchecker
+image: ghcr.io/ebell495/pyspellchecker:latest
+duration: 300
+
+tests:
+    - file:///no_tests
+
+cmds:
+    - cmd: fuzz/fuzz.py
+      libfuzzer: true
