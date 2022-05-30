@@ -1,10 +1,7 @@
 project: pyspellchecker
-target: pyspellchecker
-image: ghcr.io/ebell495/pyspellchecker:latest
-duration: 300
+target: fuzz
 
-tests:
-    - file:///no_tests
+tests: null
 
 cmds:
     - cmd: fuzz/fuzz.py
