@@ -1,8 +1,6 @@
 project: pyspellchecker
 target: fuzz
 
-tests: null
-
 cmds:
     - cmd: fuzz/fuzz.py
       libfuzzer: true
