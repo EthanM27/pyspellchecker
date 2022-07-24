@@ -9,10 +9,8 @@ spell = SpellChecker()
 
 @atheris.instrument_func
 def TestOneInput(data):
-    try:
-        txt = data.decode("utf-8")
-    except UnicodeDecodeError:
-        return
+    fdp = atheris.FuzzedDataProvider(data)
+    txt = fdp.ConsumeUnicodeNoSurrogates(len(data))
     
     res = spell.unknown(txt.split(" "))
     for word in res:
