@@ -26,7 +26,7 @@ langs = [english,
 @atheris.instrument_func
 def test_known_unknown(data):
     fdp = atheris.FuzzedDataProvider(data)
-    s = fdp.ConsumeUnicode(4096)
+    s = fdp.ConsumeBytes(4096)
 
     for lang in langs:
         known = len(lang.known([s]))
