@@ -1,0 +1,9 @@
+project: proj
+
+target: fuzzer
+
+image: ghcr.io/ethanm27/pyspellchecker:latest
+
+cmds:
+    - cmd: /src/mayhem/fuzz_spellcheck.py
+      libfuzzer: true
