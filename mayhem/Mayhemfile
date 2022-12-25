@@ -1,6 +1,6 @@
-project: proj
+project: pyspellchecker
 
-target: fuzzer
+target: fuzz_spellcheck
 
 image: ghcr.io/ethanm27/pyspellchecker:latest
 
