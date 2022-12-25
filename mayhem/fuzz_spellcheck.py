@@ -6,11 +6,10 @@ import sys
 with atheris.instrument_imports():
     from spellchecker import SpellChecker
 
+spell = SpellChecker()
 
 @atheris.instrument_func
-def test_input(data):
-    spell = SpellChecker()
-    
+def test_input(data):    
     fdp = atheris.FuzzedDataProvider(data)
     s = fdp.ConsumeString(4096)
 
