@@ -15,6 +15,7 @@ german = SpellChecker(language='de')
 russian = SpellChecker(language='ru')
 arabic = SpellChecker(language='ar')
 
+# add support for testing multiple languages.
 langs = [english,
          spanish, 
          french, 
@@ -28,6 +29,8 @@ def test_known_unknown(data):
     fdp = atheris.FuzzedDataProvider(data)
     s = fdp.ConsumeUnicode(4096)
 
+    # tests the known and unknown functions directly, which adds to the functions tested
+    # in the original
     for lang in langs:
         known = len(lang.known([s]))
         unknown = len(lang.unknown([s]))
@@ -45,6 +48,9 @@ def test_possible_corrections(data):
     s = fdp.ConsumeUnicode(4096)
 
     for lang in langs:
+        # only needs to test candidates and not correction bc 
+        # correction only adds an additional list sort overhead while still using
+        # candidates. Speeds up runtime
         lang.candidates(s)
 
 def main():
